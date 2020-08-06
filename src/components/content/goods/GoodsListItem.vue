@@ -1,50 +1,65 @@
 <template>
-  <div class="goods" @click="goToDetail">
-    <img v-lazy="getImg" :key="getImg" alt="">
+  <div class="goods-item">
+    <img :src="goodsItem.show.img" alt="">
     <div class="goods-info">
-      <p>{{goods.title}}</p>
-      <span class="price">¥{{goods.price}}</span>
-      <span class="collect">{{goods.cfav}}</span>
+      <p>{{goodsItem.title}}</p>
+      <span class="price">¥{{goodsItem.price}}</span>
+      <span class="collect">{{goodsItem.cfav}}</span>
     </div>
   </div>
+<!--  <div class="goods" @click="goToDetail">-->
+<!--    <img v-lazy="getImg" :key="getImg" alt="">-->
+<!--    <div class="goods-info">-->
+<!--      <p>{{goods.title}}</p>-->
+<!--      <span class="price">¥{{goods.price}}</span>-->
+<!--      <span class="collect">{{goods.cfav}}</span>-->
+<!--    </div>-->
+<!--  </div>-->
 </template>
 
 <script>
 	export default {
 		name: "GoodsListItem",
     props: {
-		  goods: {
+		  goodsItem: {
 		    type: Object,
-        default: {}
+        // default: {}
+        default(){
+          return {}
+        }
       }
     },
-    mounted: function () {
-      // console.log(this.goods);
-    },
-    methods: {
-      goToDetail: function () {
-        // 1.获取iid
-        let iid = this.goods.iid;
-
-        // 2.跳转到详情页面
-        this.$router.push({path: '/detail', query: {iid}})
-      }
-    },
-    computed: {
-      getImg() {
-        return this.goods.img || this.goods.image || this.goods.show.img
-      }
-    }
+  //   mounted: function () {
+  //     // console.log(this.goods);
+  //   },
+  //   methods: {
+  //     goToDetail: function () {
+  //       // 1.获取iid
+  //       let iid = this.goods.iid;
+  //
+  //       // 2.跳转到详情页面
+  //       this.$router.push({path: '/detail', query: {iid}})
+  //     }
+  //   },
+  //   computed: {
+  //     getImg() {
+  //       return this.goods.img || this.goods.image || this.goods.show.img
+  //     }
+  //   }
 	}
 </script>
 
 <style scoped>
-  .goods {
+  .goods-item {
     padding-bottom: 40px;
     position: relative;
+    /*width: 150px;*/
+    width: 48%;
   }
-  .goods img {
+  .goods-item img {
     width: 100%;
+    height: 100%;
+    border-radius: 5px;
   }
 
   .goods-info {

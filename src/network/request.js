@@ -4,7 +4,8 @@ import axios from 'axios'
 export function request(config) {
   // 1.创建axios的实例
   const instance = axios.create({
-    baseURL:'http://123.207.32.32:8000',
+    // baseURL:'http://123.207.32.32:8000',
+    baseURL: 'http://152.136.185.210:8000/api/z8',
     timeout:5000
   })
   // 2.axios的拦截器
@@ -21,7 +22,7 @@ export function request(config) {
   });
   // 2.2.响应拦截的作用
   instance.interceptors.response.use(res => {
-    console.log(res);
+    // console.log(res);
     return res.data //main.js的120行的console.log(res) 就会只剩下data
   },err => {
     console.log(err);

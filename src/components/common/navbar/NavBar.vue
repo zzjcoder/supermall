@@ -14,7 +14,10 @@
 
 <style scoped>
   #nav-bar {
-    position: relative;
+    /*background-color: #f6f6f6;*/
+
+
+    /*position: relative;*/
     z-index: 10;
 
     display: flex;
@@ -24,7 +27,8 @@
     text-align: center;
 
     /*border-bottom: 1px solid #eee;*/
-    /*box-shadow: 0 1px 1px rgba(100,100,100,.08);*/
+    /*box-shadow: 0 -1px 1px rgba(100,100,100,1);*/
+    box-shadow: 0 3px 3px rgba(100,100,100,1);
   }
 
   .nav-left {

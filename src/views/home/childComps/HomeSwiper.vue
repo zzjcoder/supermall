@@ -9,7 +9,7 @@
 </template>
 
 <script>
-  import {Swiper, SwiperItem} from 'common/swiper'
+  import {Swiper, SwiperItem} from 'components/common/swiper'
 
 	export default {
 		name: "HomeSwiper",
@@ -20,7 +20,9 @@
     props: {
 		  banners: {
 		    type: Array,
-        default: []
+        default(){
+		      return[]
+        }
       }
     },
     methods: {

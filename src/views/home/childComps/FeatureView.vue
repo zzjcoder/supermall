@@ -1,23 +1,26 @@
 <template>
   <div class="feature">
-    <div class="feature-item" v-for="(item, index) in features">
-      <a :href="item.link">
-        <img :src="item.image" alt="">
-        <div>{{item.title}}</div>
-      </a>
-    </div>
+<!--    <div class="feature-item" v-for="(item, index) in features">-->
+<!--      <a :href="item.link">-->
+<!--        <img :src="item.image" alt="">-->
+<!--        <div>{{item.title}}</div>-->
+<!--      </a>-->
+<!--    </div>-->
+    <a href="https://act.mogujie.com/zzlx67">
+      <img src="~assets/img/home/recommend_bg.jpg" alt="">
+    </a>
   </div>
 </template>
 
 <script>
 	export default {
 		name: "FeatureView",
-    props: {
-		  features: {
-		    type: Array,
-        default: []
-      }
-    }
+    // props: {
+		//   features: {
+		//     type: Array,
+    //     default: []
+    //   }
+    // }
 	}
 </script>
 
@@ -36,8 +39,9 @@
   }
 
   .feature img {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 10px;
+    /*width: 80px;*/
+    /*height: 80px;*/
+    /*margin-bottom: 10px;*/
+    width: 100%;
   }
 </style>
