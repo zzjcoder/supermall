@@ -1,27 +1,19 @@
 <template>
-  <div class="goods-item">
-    <img :src="goodsItem.show.img" alt="">
+  <div class="goods-item" @click="itemClick">
+    <img :src="showImage" alt="" @load="imageLoad">
     <div class="goods-info">
       <p>{{goodsItem.title}}</p>
       <span class="price">¥{{goodsItem.price}}</span>
       <span class="collect">{{goodsItem.cfav}}</span>
     </div>
   </div>
-<!--  <div class="goods" @click="goToDetail">-->
-<!--    <img v-lazy="getImg" :key="getImg" alt="">-->
-<!--    <div class="goods-info">-->
-<!--      <p>{{goods.title}}</p>-->
-<!--      <span class="price">¥{{goods.price}}</span>-->
-<!--      <span class="collect">{{goods.cfav}}</span>-->
-<!--    </div>-->
-<!--  </div>-->
 </template>
 
 <script>
 	export default {
 		name: "GoodsListItem",
     props: {
-		  goodsItem: {
+      goodsItem: {
 		    type: Object,
         // default: {}
         default(){
@@ -29,23 +21,31 @@
         }
       }
     },
-  //   mounted: function () {
-  //     // console.log(this.goods);
-  //   },
-  //   methods: {
-  //     goToDetail: function () {
-  //       // 1.获取iid
-  //       let iid = this.goods.iid;
-  //
-  //       // 2.跳转到详情页面
-  //       this.$router.push({path: '/detail', query: {iid}})
-  //     }
-  //   },
-  //   computed: {
-  //     getImg() {
-  //       return this.goods.img || this.goods.image || this.goods.show.img
-  //     }
-  //   }
+    mounted: function () {
+      // console.log(this.goodsItem);
+    },
+    methods: {
+		  imageLoad(){
+        // console.log('imageLoad');
+        this.$bus.$emit('itemImageLoad')
+      },
+      itemClick(){
+        console.log('跳转到详情页');
+        this.$router.push('/detail/' + this.goodsItem.iid)
+      }
+      // goToDetail: function () {
+      //   // 1.获取iid
+      //   let iid = this.goods.iid;
+      //
+      //   // 2.跳转到详情页面
+      //   this.$router.push({path: '/detail', query: {iid}})
+      // }
+    },
+    computed: {
+      showImage() {
+        return this.goodsItem.img || this.goodsItem.image || this.goodsItem.show.img
+      }
+    }
 	}
 </script>
 

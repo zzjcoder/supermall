@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+<!--    keep-alive缓存页面，不会销毁 有keep-alive才能使用 activated，deactivated这两个函数-->
+<!--    exclude排除Detail的keep-alive效果-->
+    <keep-alive exclude="Detail">
+      <router-view></router-view>
+    </keep-alive>
     <main-tab-bar></main-tab-bar>
   </div>
 </template>
